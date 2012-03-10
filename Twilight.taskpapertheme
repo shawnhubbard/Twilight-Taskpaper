@@ -1,0 +1,91 @@
+<theme>
+	<!-- Window Style -->
+	<window foregroundColorID="foreground" backgroundColorID="background" shouldUseHUDScrollers="no" />
+
+	<!-- colors -->
+	<color id="foreground" red="1.0" green="1.0" blue="1.0" alpha="1.0" />
+	<color id="background" red="0.0784" green="0.0784" blue="0.0784" alpha="1.0" />
+	<color id="tag" red="0.5403" green="0.5795" blue="0.3759" alpha="1.0" />
+	<color id="importantTag" red="0.8118" green="0.4157" blue="0.3020" alpha="1.0" />
+	<color id="todayTag" red="0.8549" green="0.9490" blue="0.6431" alpha="1.0" />
+	<color id="handle" extendsColorID="foreground" />
+	<color id="insertionPoint" extendsColorID="foreground" />
+	<color id="selection" red="0.7" green="0.835" blue="1" alpha="1.0" />
+	<color id="task" extendsColorID="foreground" />
+	<color id="project" red="0.8039" green="0.6588" blue="0.4118" alpha="1.0" />
+	<color id="subProject" red="0.6305" green="0.4881" blue="0.3153" alpha="1.0" />
+	<color id="note" red="0.6" green="0.6" blue="0.6" alpha="1.0" />
+	<color id="groupHeader" extendsColorID="foreground" red="0.3686" green="0.5098" blue="0.6510" alpha="1.0" />
+	
+
+	<!-- Fonts -->
+	<font id="base" name="Monaco" size="12" />
+
+	<font id="task" extendsFontID="base" size="12" />
+	<font id="project" extendsFontID="base" fontTraitMask="NSBoldFontMask" size="15" />
+	<font id="subProject" extendsFontID="base" fontTraitMask="NSBoldFontMask" size="14" />
+	<font id="note" extendsFontID="base" size="12" />
+	<font id="groupHeader" extendsFontID="base" fontTraitMask="NSBoldFontMask" size="19" />
+
+
+	<!-- Base font view styes -->
+	<characterStyle id="base" fontID="base" foregroundColorID="foreground" />
+	<paragraphStyle id="base" paragraphSpacingBefore="0" paragraphSpacing="0" lineSpacing="0" lineHeightMultiple="0.0" alignment="NSLeftTextAlignment" />
+	
+	<textView
+		shouldAntialiasText="yes"
+		shouldShowNoteHandles="no"
+		shouldShowProjectHandles="yes"
+		defaultCharacterStyleID="base"
+		insertionPointColorID="insertionPoint"
+		selectionColorID="selection"
+		handleColorID="handle"
+		tagColorID="tag"
+	/>
+
+
+	<!-- Task style. This section defines the styles that are applied to task lines. -->
+	<characterStyle id="task" fontID="task" foregroundColorID="task" />
+	<entryRule matchesQuery="type = task" lineCharacterStyleID="task" paragraphStyleID="task" />
+	<paragraphStyle id="task" lineSpacing="4" lineHeightMultiple="0" paragraphSpacing="0" paragraphSpacingBefore="0"/>
+
+
+	<!-- Note style. This section defines the styles that are applied to note lines. -->
+	<characterStyle id="note" fontID="note" foregroundColorID="note" />
+	<entryRule matchesQuery="type = note" lineCharacterStyleID="note" paragraphStyleID="note" />
+	<paragraphStyle id="note" lineSpacing="4" lineHeightMultiple="0" />
+
+
+	<!-- GroupHeader style. This section defines the styles that are applied to groupHeader lines. (top level projects) -->
+	<characterStyle id="groupHeader" fontID="groupHeader" foregroundColorID="groupHeader" />
+	<paragraphStyle id="groupHeader" extendsParagraphStyleID="base" paragraphSpacingBefore="12" paragraphSpacing="8" />
+	<entryRule matchesQuery="type = &quot;project&quot; and level = 0" paragraphStyleID="groupHeader" lineCharacterStyleID="groupHeader" />
+
+
+	<!-- Project style. This section defines the styles that are applied to first level project lines. (first-level) -->
+	<characterStyle id="project" fontID="project" foregroundColorID="project" />
+	<paragraphStyle id="project" extendsParagraphStyleID="base" paragraphSpacingBefore="4" paragraphSpacing="4" />
+	<entryRule matchesQuery="type = &quot;project&quot; and level = 1" paragraphStyleID="project" lineCharacterStyleID="project" />
+
+
+	<!-- Sub-project style. This section defines the styles that are applied to second level project lines. (sub-projects) -->
+	<characterStyle id="subProject" fontID="subProject" foregroundColorID="subProject" />
+	<paragraphStyle id="subProject" extendsParagraphStyleID="base" paragraphSpacingBefore="4" paragraphSpacing="4" />
+	<entryRule matchesQuery="type = &quot;project&quot; and level = 2" paragraphStyleID="subProject" lineCharacterStyleID="subProject" />
+
+
+	<!-- @done style. This section defines the styles that are applied to lines tagged with @done. -->
+	<characterStyle id="done" strikethroughStyle="NSUnderlineStyleSingle" />
+	<entryRule matchesQuery="@done" contentCharacterStyleID="done" />
+
+
+	<!-- @important style. This section defines the styles that are applied to lines tagged with @done. -->
+	<characterStyle id="importantTag" foregroundColorID="importantTag" />
+	<entryRule matchesQuery="@important" contentCharacterStyleID="importantTag" />
+
+	<!-- @today style. This section defines the styles that are applied to lines tagged with @today. -->
+	<characterStyle id="todayTag" foregroundColorID="todayTag" />
+	<entryRule matchesQuery="@today" contentCharacterStyleID="todayTag" />
+
+
+</theme>
